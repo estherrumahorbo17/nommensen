@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources\Rektors\Schemas;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 
 class RektorForm
@@ -16,7 +16,10 @@ class RektorForm
                     ->required(),
                 TextInput::make('jabatan')
                     ->required(),
-                Textarea::make('image')
+                FileUpload::make('image')
+                    ->image()
+                    ->directory('rektors')
+                    ->maxSize(2048)
                     ->required()
                     ->columnSpanFull(),
             ]);

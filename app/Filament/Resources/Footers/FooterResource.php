@@ -27,7 +27,7 @@ class FooterResource extends Resource
 
     protected static ?string $navigationLabel = 'Pengaturan Footer';
 
-    protected static ?string $recordTitleAttribute = 'Footer';
+    protected static ?string $recordTitleAttribute = 'alamat';
 
     public static function form(Schema $schema): Schema
     {

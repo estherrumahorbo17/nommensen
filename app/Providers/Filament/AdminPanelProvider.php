@@ -32,6 +32,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('Nommensen')    
             ->colors([
                 'primary' => Color::Blue,
+                'warning' => Color::Yellow,
             ])
             ->favicon(asset('favicon.ico'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')

@@ -17,7 +17,6 @@ class FacilityForm
                     ->columnSpanFull(),
                 FileUpload::make('image')
                     ->directory('facilities')
-                    ->imagePreviewHeight('200px')
                     ->maxSize(3072)
                     ->required()
                     ->columnSpanFull(),

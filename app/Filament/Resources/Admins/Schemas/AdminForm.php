@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources\Admins\Schemas;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 
 class AdminForm
@@ -18,7 +18,10 @@ class AdminForm
                     ->required(),
                 TextInput::make('jabatan')
                     ->required(),
-                Textarea::make('image')
+                FileUpload::make('image')
+                    ->image()
+                    ->directory('admins')
+                    ->maxSize(2048)
                     ->required()
                     ->columnSpanFull(),
             ]);

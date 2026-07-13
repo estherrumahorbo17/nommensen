@@ -16,24 +16,43 @@ class FootersTable
     {
         return $table
             ->columns([
-                ImageColumn::make('image'),
+                ImageColumn::make('image')
+                    ->circular(),
                 TextColumn::make('link_instagram')
-                    ->searchable(),
+                    ->label('Instagram')
+                    ->searchable()
+                    ->url(fn ($state) => $state)
+                    ->openUrlInNewTab(),
                 TextColumn::make('link_youtube')
-                    ->searchable(),
+                    ->label('YouTube')
+                    ->searchable()
+                    ->url(fn ($state) => $state)
+                    ->openUrlInNewTab(),
                 TextColumn::make('link_linkedin')
-                    ->searchable(),
+                    ->label('LinkedIn')
+                    ->searchable()
+                    ->url(fn ($state) => $state)
+                    ->openUrlInNewTab(),
                 TextColumn::make('link_facebook')
-                    ->searchable(),
+                    ->label('Facebook')
+                    ->searchable()
+                    ->url(fn ($state) => $state)
+                    ->openUrlInNewTab(),
                 TextColumn::make('alamat')
                     ->searchable(),
                 TextColumn::make('email')
                     ->label('Email address')
-                    ->searchable(),
+                    ->searchable()
+                    ->url(fn ($state) => $state ? "mailto:{$state}" : null),
                 TextColumn::make('wa')
-                    ->searchable(),
+                    ->searchable()
+                    ->url(fn ($state) => $state ? "https://wa.me/" . (str_starts_with($phone = preg_replace('/\D/', '', $state), '0') ? '62' . substr($phone, 1) : $phone) : null)
+                    ->openUrlInNewTab(),
                 TextColumn::make('link_gmaps')
-                    ->searchable(),
+                    ->label('Google Maps')
+                    ->searchable()
+                    ->url(fn ($state) => $state)
+                    ->openUrlInNewTab(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

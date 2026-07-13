@@ -27,7 +27,7 @@ class AdminResource extends Resource
 
     protected static ?string $navigationLabel = 'Admin / Staf';
 
-    protected static ?string $recordTitleAttribute = 'Admin';
+    protected static ?string $recordTitleAttribute = 'nama';
 
     public static function form(Schema $schema): Schema
     {

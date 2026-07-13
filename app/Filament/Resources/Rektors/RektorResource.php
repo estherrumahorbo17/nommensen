@@ -27,7 +27,7 @@ class RektorResource extends Resource
 
     protected static ?string $navigationLabel = 'Pimpinan';
 
-    protected static ?string $recordTitleAttribute = 'Rektor';
+    protected static ?string $recordTitleAttribute = 'nama';
 
     public static function form(Schema $schema): Schema
     {
