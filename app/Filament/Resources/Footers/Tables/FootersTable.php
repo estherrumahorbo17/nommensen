@@ -17,6 +17,8 @@ class FootersTable
         return $table
             ->columns([
                 ImageColumn::make('image')
+                    ->disk('public')
+                    ->height(60)
                     ->circular(),
                 TextColumn::make('link_instagram')
                     ->label('Instagram')

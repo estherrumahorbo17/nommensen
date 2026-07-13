@@ -6,6 +6,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -15,21 +16,44 @@ class StudentsTable
     {
         return $table
             ->columns([
+                ImageColumn::make('image')
+                    ->label('Foto')
+                    ->disk('public')
+                    ->circular()
+                    ->height(60),
                 TextColumn::make('namalengkap')
-                    ->searchable(),
+                    ->label('Nama Lengkap')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('namapanggilan')
-                    ->searchable(),
+                    ->label('Nama Panggilan')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('email')
-                    ->label('Email address')
+                    ->label('Email')
                     ->searchable(),
                 TextColumn::make('nomor_hp')
+                    ->label('Nomor HP')
                     ->searchable(),
                 TextColumn::make('jalur')
-                    ->searchable(),
+                    ->label('Jalur')
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'Reguler' => 'info',
+                        'Beasiswa' => 'success',
+                        'Transfer' => 'warning',
+                        default => 'gray',
+                    })
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('programstudi_1')
-                    ->searchable(),
+                    ->label('Pilihan 1')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('programstudi_2')
-                    ->searchable(),
+                    ->label('Pilihan 2')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

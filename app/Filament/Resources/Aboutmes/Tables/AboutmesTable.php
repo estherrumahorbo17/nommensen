@@ -6,6 +6,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -20,17 +21,13 @@ class AboutmesTable
                     ->limit(60)
                     ->wrap()
                     ->searchable(),
-                TextColumn::make('image')
+                ImageColumn::make('image')
                     ->label('Gambar')
-                    ->formatStateUsing(function ($state): string {
-                        if (is_array($state)) {
-                            return count($state) . ' item';
-                        }
-
-                        return (string) $state;
-                    })
-                    ->limit(40)
-                    ->wrap(),
+                    ->disk('public')
+                    ->height(60)
+                    ->stacked()
+                    ->limit(3)
+                    ->limitedRemainingText(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

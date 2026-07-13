@@ -30,6 +30,7 @@ class GreetingForm
                     ->required()
                     ->columnSpanFull(),
                 FileUpload::make('image')
+                    ->disk('public')
                     ->directory('greetings')
                     ->required()
                     ->columnSpanFull(),

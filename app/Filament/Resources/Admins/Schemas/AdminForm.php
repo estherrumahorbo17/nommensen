@@ -20,6 +20,7 @@ class AdminForm
                     ->required(),
                 FileUpload::make('image')
                     ->image()
+                    ->disk('public')
                     ->directory('admins')
                     ->maxSize(2048)
                     ->required()

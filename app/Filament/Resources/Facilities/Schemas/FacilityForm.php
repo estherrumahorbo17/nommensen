@@ -16,6 +16,7 @@ class FacilityForm
                     ->required()
                     ->columnSpanFull(),
                 FileUpload::make('image')
+                    ->disk('public')
                     ->directory('facilities')
                     ->maxSize(3072)
                     ->required()

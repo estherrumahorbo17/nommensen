@@ -28,6 +28,7 @@ class LectureForm
                     ->required(),
                 FileUpload::make('image')
                     ->image()
+                    ->disk('public')
                     ->directory('lectures')
                     ->maxSize(2048)
                     ->required()

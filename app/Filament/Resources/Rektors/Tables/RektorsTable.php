@@ -17,6 +17,7 @@ class RektorsTable
         return $table
             ->columns([
                 ImageColumn::make('image')
+                    ->disk('public')
                     ->circular()
                     ->size(70),
                 TextColumn::make('nama')

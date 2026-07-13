@@ -18,6 +18,7 @@ class CooperationForm
                     ->columnSpanFull(),
                 FileUpload::make('image')
                     ->image()
+                    ->disk('public')
                     ->directory('cooperations')
                     ->maxSize(2048)
                     ->required()

@@ -17,6 +17,7 @@ class AdminsTable
         return $table
             ->columns([
                 ImageColumn::make('image')
+                    ->disk('public')
                     ->circular(),
                 TextColumn::make('nama')
                     ->searchable(),

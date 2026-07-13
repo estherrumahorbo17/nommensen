@@ -18,6 +18,7 @@ class RektorForm
                     ->required(),
                 FileUpload::make('image')
                     ->image()
+                    ->disk('public')
                     ->directory('rektors')
                     ->maxSize(2048)
                     ->required()
