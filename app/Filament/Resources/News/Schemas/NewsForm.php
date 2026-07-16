@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\News\Schemas;
 
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
@@ -17,6 +18,8 @@ class NewsForm
                     ->label('Judul Berita')
                     ->required()
                     ->maxLength(255)
+                    ->placeholder('contoh: B University Raih Akreditasi Unggul')
+                    ->helperText('Slug URL akan dibuat otomatis dari judul ini.')
                     ->columnSpanFull(),
 
                 RichEditor::make('content')
@@ -30,9 +33,6 @@ class NewsForm
                         'link',
                         'h2',
                         'h3',
-                        'blockquote',
-                        'redo',
-                        'undo',
                     ])
                     ->required()
                     ->columnSpanFull(),
@@ -40,19 +40,16 @@ class NewsForm
                 FileUpload::make('image')
                     ->label('Foto Berita')
                     ->image()
-                    ->disk('public')
                     ->directory('news')
                     ->visibility('public')
-                    ->imagePreviewHeight('150')
-                    ->maxSize(2048)
+                    ->imagePreviewHeight('200')
+                    ->maxSize(3072)
                     ->required()
-                    ->helperText('Format: JPG, PNG. Maks 2MB.')
+                    ->helperText('Foto utama berita. Format: JPG, PNG. Maks 3MB.')
                     ->columnSpanFull(),
 
-                TextInput::make('slug')
-                    ->required()
-                    ->maxLength(255)
-                    ->unique(ignoreRecord: true),
+                Hidden::make('slug'),
+                Hidden::make('users_id'),
             ]);
     }
 }
