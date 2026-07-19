@@ -1,11 +1,33 @@
-@import 'tailwindcss';
-
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
+
+/* Alpine.js cloak — sembunyikan elemen sebelum JS siap */
+[x-cloak] { display: none !important; }
+
+/* Prose content: styling untuk konten HTML dari CMS/editor */
+.prose-content {
+    line-height: 2;
+    color: #475569;
+}
+.prose-content p { margin-bottom: 1rem; }
+.prose-content strong { font-weight: 600; }
+.prose-content ul { list-style-type: disc; padding-left: 1.25rem; }
+.prose-content ol { list-style-type: decimal; padding-left: 1.25rem; }
+.prose-content li { margin-bottom: 0.25rem; }
+.prose-content a { color: #1d4ed8; }
+.prose-content a:hover { color: #1e3a8a; }
+
+/* Prose content dark: untuk bagian dark background */
+.prose-content-dark {
+    line-height: 2;
+    color: #e0f2fe;
+}
+.prose-content-dark p { margin-bottom: 0.75rem; }
+.prose-content-dark strong { font-weight: 600; }
+.prose-content-dark ul { list-style-type: disc; padding-left: 1.25rem; }
+.prose-content-dark ol { list-style-type: decimal; padding-left: 1.25rem; }
+.prose-content-dark li { margin-bottom: 0.25rem; }
